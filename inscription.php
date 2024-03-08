@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
+    <link rel="stylesheet" href="./font/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +18,9 @@
         }
         h1 {
             text-align: center;
+            font-family: 'Disney';
+            font-size: 56px;
+            margin: 16px 0;
         }
         form {
             padding: 20px;
@@ -60,7 +64,7 @@
             width: 100%;
         }
         input[type="submit"], .inscription {
-            background-color: #4CAF50;
+            background-color: #00B;
             color: white;
             padding: 15px 20px;
             border: none;
@@ -72,7 +76,32 @@
             text-decoration: none;
         }
         input[type="submit"]:hover {
-            background-color: #45a049; 
+            background-color: #adbce6; 
+        }
+        .switch-page{
+            margin-bottom: 50px;
+        }
+        ::-webkit-scrollbar{
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track{
+            background: none;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background-color: rgb(61, 61, 61);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover{
+            background-color: rgb(46, 46, 46);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-corner{
+            background: none;
         }
     </style>
 </head>
@@ -112,7 +141,7 @@
 
         <input type="submit" value="Register">
     </form>
-    <div>
+    <div class="switch-page">
         <h2>Vous avez déjà un compte ?</h2><a class="inscription" href="connexion.php">Connectez-vous !</a>
     </div>
 </body>

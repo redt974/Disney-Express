@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Disney';
+    src: local('Disney Script'), local('Disney-Script'),
+        url('DisneyScript.woff2') format('woff2'),
+        url('DisneyScript.woff') format('woff'),
+        url('DisneyScript.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

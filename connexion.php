@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
+    <link rel="stylesheet" href="./font/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +18,8 @@
         }
         h1 {
             text-align: center;
+            font-family: 'Disney';
+            font-size: 56px;
         }
         form {
             padding: 20px;
@@ -60,7 +63,7 @@
             width: 100%; 
         }
         input[type="submit"], .connexion {
-            background-color: #4CAF50; 
+            background-color: #00B; 
             color: white;
             padding: 15px 20px;
             border: none;
@@ -72,7 +75,30 @@
             text-decoration: none;
         }
         input[type="submit"]:hover {
-            background-color: #45a049; 
+            background-color: #adbce6; 
+        }
+        ::-webkit-scrollbar{
+            width: 12px;
+            height: 12px;
+            background-color: #000;
+        }
+
+        ::-webkit-scrollbar-track{
+            background: none;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background-color: rgb(61, 61, 61);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover{
+            background-color: rgb(46, 46, 46);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-corner{
+            background: none;
         }
     </style>
 </head>

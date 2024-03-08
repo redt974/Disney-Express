@@ -66,6 +66,7 @@ if (isset($_SESSION["email"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attractions</title>
+    <link rel="stylesheet" href="./font/style.css">
     <style>
         /* Add CSS to style your page if necessary */
         body {
@@ -73,11 +74,17 @@ if (isset($_SESSION["email"])) {
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-image: url('./images/disney-image.webp');
         }
         h1 {
-            font-family: ;
+            font-size : 92px;
+            font-family: 'Disney';
+        }
+        p{
+            font-size : 34px;
         }
         table {
+            background-color: #DCDCDC;
             width: 90%;
             border-collapse: collapse;
             margin-top: 20px;
@@ -91,7 +98,7 @@ if (isset($_SESSION["email"])) {
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #70726E;
         }
         .table-img {
             max-width: 100px;
@@ -99,6 +106,28 @@ if (isset($_SESSION["email"])) {
         }
         .favorites-btn {
             cursor: pointer;
+        }
+        ::-webkit-scrollbar{
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track{
+            background: none;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background-color: rgb(61, 61, 61);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover{
+            background-color: rgb(46, 46, 46);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-corner{
+            background: none;
         }
     </style>
 </head>
@@ -108,13 +137,12 @@ if (isset($_SESSION["email"])) {
     <h1>Disneyland Attractions</h1>
 
     <?php if (!isset($_SESSION["email"])) : ?>
-        <p>You must be logged in to view attractions.</p>
+        <p>Vous devez être connecté pour voir les attractions !</p>
     <?php else : ?>
         <!-- Afficher le tableau des attractions -->
         <?php if (!empty($attractions)) : ?>
             <table>
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Image</th>
                     <th>Description</th>
@@ -122,7 +150,6 @@ if (isset($_SESSION["email"])) {
                 </tr>
                 <?php foreach ($attractions as $attraction) : ?>
                     <tr>
-                        <td><?= $attraction['id'] ?></td>
                         <td><?= $attraction['name'] ?></td>
                         <td><img class="table-img" src="<?= $attraction['image'] ?>" alt="<?= $attraction['name'] ?>"></td>
                         <td><?= $attraction['description'] ?></td>
@@ -151,21 +178,19 @@ if (isset($_SESSION["email"])) {
 
         <!-- Afficher le tableau des favoris -->
         <?php if ($_SESSION["favorites"] !== [null]) : ?>
-            <h1>Favorites</h1>
+            <h1>Vos Attractions favorites</h1>
             <table id='favoritesTable'>
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Image</th>
                     <th>Description</th>
-                    <th>Favorites</th>
+                    <th>Favoris</th>
                 </tr>
                 <?php foreach ($_SESSION["favorites"] as $favAttractionId) : ?>
                     <?php
                     $favAttraction = $attractions[array_search($favAttractionId, array_column($attractions, 'id'))];
                     ?>
                     <tr data-id='<?= $favAttractionId ?>'>
-                        <td><?= $favAttractionId ?></td>
                         <td><?= $favAttraction['name'] ?></td>
                         <td><img class="table-img" src='<?= $favAttraction['image'] ?>' alt='<?= $favAttraction['name'] ?>'></td>
                         <td><?= $favAttraction['description'] ?></td>
@@ -180,10 +205,9 @@ if (isset($_SESSION["email"])) {
                 <?php endforeach; ?>
             </table>
         <?php else : ?>
-            <h2>Favorites</h2>
+            <h2>Vos Attractions favorites</h2>
             <table id='favoritesTable'>
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Image</th>
                     <th>Description</th>
