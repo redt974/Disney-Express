@@ -71,7 +71,7 @@
 </head>
 <body>
     <nav> 
-        <img src="./images/disney-logo.png" alt="disney-title" />
+        <img src="./assets/disney-logo.png" alt="disney-title" />
         <a href="./index.php" <?php if(basename($_SERVER['PHP_SELF']) == 'index.php') echo 'class="active"'; ?>>Accueil</a> 
         <a href="./attractions.php" <?php if(basename($_SERVER['PHP_SELF']) == 'attractions.php') echo 'class="active"'; ?>>Attractions</a> 
         <?php             

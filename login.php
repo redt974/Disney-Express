@@ -15,6 +15,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($user[3] === $email && password_verify($password, $user[4])) {
                 // Login successful, create a session for the user
                 $_SESSION["email"] = $email;
+
+                // Restaurer les favoris depuis le fichier spécifique à l'utilisateur
+                if (isset($_SESSION["email"])) {
+                    $email = $_SESSION["email"];
+                    $userFavoritesFilename = "user_favorites_" . $email . ".csv";
+
+                    if (file_exists($userFavoritesFilename)) {
+                        // Charger les favoris depuis le fichier CSV spécifique à l'email
+                        $userFavoritesContent = file_get_contents($userFavoritesFilename);
+
+                        // Vérifier si le fichier n'est pas vide
+                        if (isset($userFavoritesContent)) {
+                            $userFavorites = str_getcsv($userFavoritesContent, ",", '"');
+                            // print_r($userFavorites);
+                            $_SESSION["favorites"] = $userFavorites;
+                        }
+                    } else{
+                        $_SESSION["favorites"] = [];
+                    }
+                }
+
                 fclose($file); // Close the file after reading
 
                 echo "Login successful!";

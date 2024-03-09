@@ -29,31 +29,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"]) && isset($_P
 
     if ($action == "add" && !in_array($attractionId, $_SESSION["favorites"])) {
         $_SESSION["favorites"][] = $attractionId;
-    } elseif ($action == "remove" && ($index = array_search($attractionId, $_SESSION["favorites"])) !== false) {
+    } else if ($action == "remove" && ($index = array_search($attractionId, $_SESSION["favorites"])) !== false) {
         unset($_SESSION["favorites"][$index]);
     }
 
     // Redirection pour éviter la soumission du formulaire lors du rafraîchissement
     header("Location: attractions.php");
     exit();
-}
-
-// Restaurer les favoris depuis le fichier spécifique à l'utilisateur
-if (isset($_SESSION["email"])) {
-    $email = $_SESSION["email"];
-    $userFavoritesFilename = "user_favorites_" . $email . ".csv";
-
-    if (file_exists($userFavoritesFilename)) {
-        // Charger les favoris depuis le fichier CSV spécifique à l'email
-        $userFavoritesContent = file_get_contents($userFavoritesFilename);
-
-        // Vérifier si le fichier n'est pas vide
-        if (isset($userFavoritesContent)) {
-            $userFavorites = str_getcsv($userFavoritesContent, ",", '"');
-            // print_r($userFavorites);
-            $_SESSION["favorites"] = $userFavorites;
-        }
-    }
 }
 
 // En-tête HTML
@@ -65,7 +47,7 @@ if (isset($_SESSION["email"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attractions</title>
     <link rel="stylesheet" href="./font/style.css">
-    <link rel="icon" href='./images/favicon.ico' />
+    <link rel="icon" href='./assets/favicon.ico' />
     <style>
         /* Add CSS to style your page if necessary */
         body {
@@ -74,7 +56,7 @@ if (isset($_SESSION["email"])) {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: url('./images/disney-image.webp');
+            background: url('./assets/disney-image.webp');
             background-attachment: fixed;
             backdrop-filter: blur(10px);
             height: 100%;
@@ -135,7 +117,7 @@ if (isset($_SESSION["email"])) {
     </style>
 </head>
 <body>
-    <?php include './components/header.php'; //var_dump($_SESSION["favorites"]) ?>
+    <?php include './components/header.php'; ?>
 
     <h1>Disneyland Attractions</h1>
 

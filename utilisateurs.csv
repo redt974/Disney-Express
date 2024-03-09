@@ -1,2 +1,5 @@
 id,nom,prenom,email,password
 1,test,test,test@gmail.com,$2y$10$3R.qXhQ0i.Ypc5NGb.goIOfkNc9CoyiV.yVaNKPdPneeQqN3UFGYm
+2,test1,test1,test1@gmail.com,$2y$10$JtcAthraARGCbEq0sMNiFO3zNbI6V1HaF9h2PAonFJiFYii6Y/G42
+3,test2,test2,test2@gmail.com,$2y$10$xvnrJ4yUN6x9oUS.E0Kf7ekHsB6StvPr/P6C8v69hF9C0mnVBf2Gu
+4,thibaut,vandier,thibaut.vandier@gmail.com,$2y$10$jVNKkF1LTY9PdAXXoDyTW.vzqcd7d5KGYPD/ja43Ib2lKN/149Y9C

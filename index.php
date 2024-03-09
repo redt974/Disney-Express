@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link rel="icon" href='./images/favicon.ico' />
+    <link rel="icon" href='./assets/favicon.ico' />
     <link rel="stylesheet" href="./font/style.css">
     <style>
         body {
@@ -64,7 +64,7 @@
     ?>
     <video id="video" autoplay muted playsinline loop>
         <source
-            src="./images/disney-video.mp4"
+            src="./assets/disney-video.mp4"
             type="video/mp4">
     </video>
 
