@@ -15,12 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($user[3] === $email && password_verify($password, $user[4])) {
                 // Login successful, create a session for the user
                 $_SESSION["email"] = $email;
-
-                // Initialize an empty favorites array for the user if not already set
-                if (!isset($_SESSION["favorites"])) {
-                    $_SESSION["favorites"] = [];
-                }
-
                 fclose($file); // Close the file after reading
 
                 echo "Login successful!";

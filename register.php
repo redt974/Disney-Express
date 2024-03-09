@@ -41,10 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Create a session for the new user
         $_SESSION["email"] = $email;
 
-        // Initialize an empty favorites array for the user if not already set
-        if (!isset($_SESSION["favorites"])) {
-            $_SESSION["favorites"] = [];
-        }
+        // Initialize an empty favorites array for the user
+        $_SESSION["favorites"] = [];
 
         echo "Registration successful!";
 

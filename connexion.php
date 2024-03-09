@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
+    <link rel="icon" href='./images/favicon.ico' />
     <link rel="stylesheet" href="./font/style.css">
     <style>
         body {
@@ -11,10 +12,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-around;
-            height: 100%;
-            background-color: #ffffff; 
-            color: #000000; 
+            height: 100vh;
+            background: url('./images/disney-login.webp') center;
+            backdrop-filter: blur(10px);
         }
         h1 {
             text-align: center;
@@ -23,9 +23,9 @@
         }
         form {
             padding: 20px;
-            background-color: #ffffff; 
+            background-color: rgba(255,255,255,0.4); 
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
             margin-bottom: 20px;
             width: 35%;
             display: flex;
@@ -33,25 +33,23 @@
             align-items: center;
         }
         .form-group {
-            margin-top: 20px;
+            margin: 20px 0;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-bottom: 20px;
         }
 
         .label-input {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 20px;
         }
 
         label {
             display: block;
             font-weight: 600;
-            margin-bottom: 10px;
-            width: 200px; 
+            font-size: 20px;
+            width: 320px; 
         }
 
         input[type="text"],
@@ -88,12 +86,12 @@
         }
 
         ::-webkit-scrollbar-thumb{
-            background-color: rgb(61, 61, 61);
+            background-color: #DCDCDC;
             border-radius: 12px;
         }
 
         ::-webkit-scrollbar-thumb:hover{
-            background-color: rgb(46, 46, 46);
+            background-color: #C0C0C0;
             border-radius: 12px;
         }
 
@@ -110,18 +108,18 @@
     <form action="login.php" method="post">
         <div class="form-group">
             <div class="label-input">
-                <label for="email">Email:</label>
+                <label for="email">Addresse Mail :</label>
                 <input type="email" id="email" name="email" required>
             </div>
         </div>
 
         <div class="form-group">
             <div class="label-input">
-                <label for="password">Password:</label>
+                <label for="password">Mot de passe :</label>
                 <input type="password" id="password" name="password" required>
             </div>
         </div>
-        <input type="submit" value="Login">
+        <input type="submit" value="Connexion">
     </form>
     <div>
         <h2>Vous n'avez pas de compte ?</h2><a class="connexion" href="inscription.php">Inscrivez-vous !</a>

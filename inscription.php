@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
+    <link rel="icon" href='./images/favicon.ico' />
     <link rel="stylesheet" href="./font/style.css">
     <style>
         body {
@@ -13,8 +14,9 @@
             align-items: center;
             justify-content: space-around;
             height: 100%;
-            background-color: #ffffff; 
             color: #000000; 
+            background: url('./images/disney-login.webp') center;
+            backdrop-filter: blur(10px);
         }
         h1 {
             text-align: center;
@@ -24,7 +26,7 @@
         }
         form {
             padding: 20px;
-            background-color: #ffffff; 
+            background-color: rgba(255,255,255,0.4); 
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             margin-bottom: 20px;
@@ -50,9 +52,9 @@
 
         label {
             display: block;
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 10px;
-            width: 200px; 
+            width: 320px; 
         }
 
         input[type="text"],
@@ -91,12 +93,12 @@
         }
 
         ::-webkit-scrollbar-thumb{
-            background-color: rgb(61, 61, 61);
+            background-color: #DCDCDC;
             border-radius: 12px;
         }
 
         ::-webkit-scrollbar-thumb:hover{
-            background-color: rgb(46, 46, 46);
+            background-color: #C0C0C0;
             border-radius: 12px;
         }
 
@@ -113,33 +115,33 @@
     <form action="register.php" method="post">
         <div class="form-group">
             <div class="label-input">
-                <label for="fname">First Name:</label>
+                <label for="fname">Nom :</label>
                 <input type="text" id="fname" name="fname" required>
             </div>
         </div>
 
         <div class="form-group">
             <div class="label-input">
-                <label for="lname">Last Name:</label>
+                <label for="lname">Prenom :</label>
                 <input type="text" id="lname" name="lname" required>
             </div>
         </div>
 
         <div class="form-group">
             <div class="label-input">
-                <label for="email">Email:</label>
+                <label for="email">Addresse Mail :</label>
                 <input type="email" id="email" name="email" required>
             </div>
         </div>
 
         <div class="form-group">
             <div class="label-input">
-                <label for="password">Password:</label>
+                <label for="password">Mot de passe :</label>
                 <input type="password" id="password" name="password" required>
             </div>
         </div>
 
-        <input type="submit" value="Register">
+        <input type="submit" value="Inscription">
     </form>
     <div class="switch-page">
         <h2>Vous avez déjà un compte ?</h2><a class="inscription" href="connexion.php">Connectez-vous !</a>

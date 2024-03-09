@@ -12,7 +12,7 @@ if ($file !== false) {
     // Lire chaque ligne du fichier CSV
     while ($attraction = fgetcsv($file)) {
         $attractions[] = [
-            'id' => strtolower(str_replace(' ', '_', $attraction[0])),
+            'id' => $attraction[0],
             'name' => $attraction[1],
             'image' => $attraction[2],
             'description' => $attraction[3]
@@ -49,14 +49,12 @@ if (isset($_SESSION["email"])) {
 
         // Vérifier si le fichier n'est pas vide
         if (isset($userFavoritesContent)) {
-            $userFavorites = str_getcsv($userFavoritesContent, ";", '"');
+            $userFavorites = str_getcsv($userFavoritesContent, ",", '"');
             // print_r($userFavorites);
             $_SESSION["favorites"] = $userFavorites;
         }
     }
 }
-
-
 
 // En-tête HTML
 ?>
@@ -67,21 +65,28 @@ if (isset($_SESSION["email"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attractions</title>
     <link rel="stylesheet" href="./font/style.css">
+    <link rel="icon" href='./images/favicon.ico' />
     <style>
         /* Add CSS to style your page if necessary */
         body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            background-image: url('./images/disney-image.webp');
+            background: url('./images/disney-image.webp');
+            background-attachment: fixed;
+            backdrop-filter: blur(10px);
+            height: 100%;
         }
         h1 {
             font-size : 92px;
             font-family: 'Disney';
+            height: 35vh;
         }
         p{
             font-size : 34px;
+            height: 35vh;
         }
         table {
             background-color: #DCDCDC;
@@ -91,21 +96,19 @@ if (isset($_SESSION["email"])) {
             margin-bottom: 100px;
         }
         table, th, td {
-            border: 1px solid #ddd;
+            border: 1px solid #ddd;            
         }
+
         th, td {
             padding: 10px;
             text-align: left;
         }
         th {
-            background-color: #70726E;
+            background-color: #C0C0C0;
         }
         .table-img {
             max-width: 100px;
             max-height: 100px;
-        }
-        .favorites-btn {
-            cursor: pointer;
         }
         ::-webkit-scrollbar{
             width: 12px;
@@ -117,12 +120,12 @@ if (isset($_SESSION["email"])) {
         }
 
         ::-webkit-scrollbar-thumb{
-            background-color: rgb(61, 61, 61);
+            background-color: #DCDCDC;
             border-radius: 12px;
         }
 
         ::-webkit-scrollbar-thumb:hover{
-            background-color: rgb(46, 46, 46);
+            background-color: #C0C0C0;
             border-radius: 12px;
         }
 
@@ -146,7 +149,7 @@ if (isset($_SESSION["email"])) {
                     <th>Name</th>
                     <th>Image</th>
                     <th>Description</th>
-                    <th>Favorites</th>
+                    <th>Favoris</th>
                 </tr>
                 <?php foreach ($attractions as $attraction) : ?>
                     <tr>
@@ -159,13 +162,13 @@ if (isset($_SESSION["email"])) {
                                 <form method="post" action="attractions.php">
                                     <input type="hidden" name="action" value="remove">
                                     <input type="hidden" name="attractionId" value="<?= $attraction['id'] ?>">
-                                    <button type="submit">Remove from Favorites</button>
+                                    <button type="submit">Enlever des favoris</button>
                                 </form>
                             <?php else : ?>
                                 <form method="post" action="attractions.php">
                                     <input type="hidden" name="action" value="add">
                                     <input type="hidden" name="attractionId" value="<?= $attraction['id'] ?>">
-                                    <button type="submit">Add to Favorites</button>
+                                    <button type="submit">Ajouter aux favoris</button>
                                 </form>
                             <?php endif; ?>
                         </td>
@@ -198,7 +201,7 @@ if (isset($_SESSION["email"])) {
                             <form method='post' action='attractions.php'>
                                 <input type='hidden' name='action' value='remove'>
                                 <input type='hidden' name='attractionId' value='<?= $favAttractionId ?>'>
-                                <button type='submit'>Remove from Favorites</button>
+                                <button type='submit'>Enlever des favoris</button>
                             </form>
                         </td>
                     </tr>

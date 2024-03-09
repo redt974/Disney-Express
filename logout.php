@@ -8,13 +8,14 @@ if (isset($_SESSION["email"])) {
     $userFavoritesFilename = "user_favorites_" . $email . ".csv";
 
     // Ouvrir le fichier en mode écriture
-    if (!empty($_SESSION["favorites"])){
+    // Ne pas modifier ce 'isset' par '!empty' car la deconnexion ne marchera pas !
+    if (isset($_SESSION["favorites"])){
         $fileHandle = fopen($userFavoritesFilename, 'w');
         if ($fileHandle !== false) {
             // Écrire les favoris dans le fichier CSV
             // print_r($_SESSION["favorites"]);
             if (isset($_SESSION["favorites"])){
-                fputcsv($fileHandle, $_SESSION["favorites"], ';');
+                fputcsv($fileHandle, $_SESSION["favorites"], ',');
             }
             // Fermer le fichier
             fclose($fileHandle);
